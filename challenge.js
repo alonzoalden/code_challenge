@@ -1,5 +1,5 @@
 /*******************************************************************
-(Borrowed from Codewars -- "Paul Cipher & Kevin Arnold" by jhancock)
+"Paul Cipher & Kevin Arnold" by jhancock (Borrowed from Codewars)
 
 We need to encode a message.
 
@@ -38,6 +38,10 @@ var encode = function() {
 var decode = function() {
   //enter function
 }
+
+
+
+//EXTRA CREDIT: Can you solve this in near constant time?
 
 
 module.exports = {
