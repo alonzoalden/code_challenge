@@ -41,7 +41,7 @@ var decode = function() {
 
 
 
-//EXTRA CREDIT: Can you solve this in near constant time?
+//EXTRA CREDIT: Can you improve the time complexity?
 
 
 module.exports = {
