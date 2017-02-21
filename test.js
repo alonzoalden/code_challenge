@@ -1,11 +1,15 @@
 const assert = require('assert');
+const chai = requireq('chai');
 const challenge = require('./challenge.js');
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      console.log(challenge.test())
-      assert.equal(-1, [1,2,3].indexOf(4));
-    });
+describe('Encode', function() {
+  it('Should encode He1lo into HM1QA', function() {
+
   });
 });
+
+describe ('Decode', function() {
+  it('Should decode HM1QA into He1lo', function() {
+
+  });
+})
