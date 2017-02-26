@@ -31,18 +31,84 @@ For both functions, empty strings and null strings should return empty strings.
 ********************************************************************/
 
 
-var encode = function() {
-  //enter function
+const letterObj = {
+    A : 1,
+    B : 2,
+    C : 3,
+    D : 4,
+    E : 5,
+    F : 6,
+    G : 7,
+    H : 8,
+    I : 9,
+    J : 10,
+    K : 11,
+    L : 12,
+    M : 13,
+    N : 14,
+    O : 15,
+    P : 16,
+    Q : 17,
+    R : 18,
+    S : 19,
+    T : 20,
+    U : 21,
+    V : 22,
+    W : 23,
+    X : 24,
+    Y : 25,
+    Z : 26
+  }
+
+const letterArr = [];
+  for (let key in letterObj) {
+    letterArr.push(key)
+  }
+
+function encode(input) {
+  if (!input) {return ""}
+  let encodedStr = "";
+  let lastLetterIdx = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    let letter = input[i].toUpperCase();
+    if (letterObj[letter]) {
+      let newLetterIdx = letterObj[letter] + lastLetterIdx;
+      if (newLetterIdx > 26) {
+        newLetterIdx = newLetterIdx % 26
+      }
+      encodedStr += letterArr[newLetterIdx-1];
+      lastLetterIdx = letterObj[letter];
+    } else {
+      encodedStr += letter;
+    }
+  }
+  return encodedStr;
 }
 
-var decode = function() {
-  //enter function
+function decode(input) {
+  if (!input) {return ""}
+  let encodedStr = "";
+  let lastLetterIdx = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    let letter = input[i].toUpperCase();
+    if (letterObj[letter]) {
+
+      let newLetterIdx = letterObj[letter] - lastLetterIdx;
+      if (newLetterIdx < 1) {
+        newLetterIdx = newLetterIdx + 26;
+      }
+      encodedStr += letterArr[newLetterIdx-1];
+      lastLetterIdx = letterObj[letterArr[newLetterIdx-1]];
+    } else {
+      encodedStr += letter;
+    }
+  }
+  return encodedStr;
 }
-
-
 
 //EXTRA CREDIT: Can you improve the time complexity?
-
 
 module.exports = {
   encode: encode,
